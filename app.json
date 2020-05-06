@@ -1,0 +1,17 @@
+{
+  "name": "dani",
+  "displayName": "dani",
+  "expo": {
+    "name": "dani",
+    "slug": "dani",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
