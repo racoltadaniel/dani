@@ -2,14 +2,14 @@ import React from 'react';
 import {
   Text,
   SafeAreaView,
-  StyleSheet
+  StyleSheet,
 } from 'react-native';
 
 export class ForgetPassword extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.safeAreaStyle}>
-        <Text>forget password</Text>
+        <Text>Good luck remembering it!</Text>
       </SafeAreaView>
     );
   }

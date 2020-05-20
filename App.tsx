@@ -8,6 +8,7 @@ import {AuthScreen} from './app/views/AuthScreen'
 import {AppScreen1} from './app/views/AppScreen1'
 import {AppScreen2} from './app/views/AppScreen2'
 import {ToDoList} from './app/views/ToDoList'
+import {RegisterUser} from './app/views/RegisterUser'
 
 const ScreenConstants = {
   TO_DO_LIST_SCREEN: 'ToDoList',
@@ -18,6 +19,7 @@ const ScreenConstants = {
   LOADING_SCREEN: 'AppLoading',
   APP_STACK: 'AppStack',
   AUTH_STACK: 'AuthStack',
+  AUTH_NEW_USER_SCREEN: 'registerUser'
 };
 
 
@@ -53,6 +55,12 @@ const AuthStack = createStackNavigator({
     screen: ForgetPassword,
     navigationOptions: () => ({
       headerTitle: 'Forget Password',
+    }),
+  },
+  [ScreenConstants.AUTH_NEW_USER_SCREEN]: {
+    screen: RegisterUser,
+    navigationOptions: () => ({
+      headerTitle: 'Sign Up',
     }),
   },
 });

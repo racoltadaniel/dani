@@ -12,6 +12,11 @@
     ],
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "android": {
+      "package": "com.dani.todo",
+      "versionCode": 1
+    }
   }
+  
 }

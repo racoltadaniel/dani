@@ -9,6 +9,7 @@ import {
   Alert
 } from 'react-native';
 import axios from 'axios';
+import base64 from 'react-native-base64'
 
 const AsyncStoreConstant = 'userAuthFlag';
 
@@ -18,12 +19,8 @@ export class AuthScreen extends React.Component {
             password: ''};
     handleSubmit = (event) => {
         event.preventDefault();
-        // if(this.state.userName==='admin' && this.state.password==='admin')
-        // {
-
-
           let successHandle = () => {
-            this.props.navigation.navigate(ScreenConstants.APP_STACK);
+            this.props.navigation.navigate(ScreenConstants.TO_DO_LIST_SCREEN);
           }
 
           let formdata = new FormData();
@@ -32,7 +29,7 @@ export class AuthScreen extends React.Component {
           formdata.append("password", this.state.password)
           
           axios({
-            url    : 'http://192.168.0.108:8080/api/login',
+            url    : 'http://danielracolta.co.uk:8080/api/login',
             method : 'POST',
             data   : formdata,
             headers: {
@@ -41,13 +38,14 @@ export class AuthScreen extends React.Component {
                      }
                  })
                  .then(function (response) {
-                   console.log("Success")
+                    // console.log(base64.encode(formdata._parts[0][1] + ':' + formdata._parts[1][1]));
+                    // let user = {authdata : base64.encode(formdata._parts[0][1] + ':' + formdata._parts[1][1])};
+                    // console.log(user);
+                    // AsyncStorage.setItem('user', JSON.stringify(user));
                     AsyncStorage.setItem(AsyncStoreConstant, 'doneAuth');
                     successHandle();
                 })
                 .catch(function (error) {
-                  console.log("Fail")
-                  console.log(error)
                   Alert.alert("Wrong credentials","Try again!"); 
                 })
     }
@@ -73,9 +71,16 @@ export class AuthScreen extends React.Component {
             onPress={this.handleSubmit}
           />
           <Button
-            title="Forget Password"
+            title="Forgot Password"
             onPress={() => {
               this.props.navigation.navigate(ScreenConstants.AUTH_FORGET_SCREEN);
+            }}
+          />
+
+          <Button
+            title="Sign Up"
+            onPress={() => {
+              this.props.navigation.navigate(ScreenConstants.AUTH_NEW_USER_SCREEN);
             }}
           />
         </SafeAreaView>
@@ -111,6 +116,7 @@ export class AuthScreen extends React.Component {
     APP_SECOND_SCREEN: 'AppScreen2',
     AUTH_LOGIN_SCREEN: 'login',
     AUTH_FORGET_SCREEN: 'forgetPassword',
+    AUTH_NEW_USER_SCREEN: 'registerUser',
     LOADING_SCREEN: 'AppLoading',
     APP_STACK: 'AppStack',
     AUTH_STACK: 'AuthStack',
