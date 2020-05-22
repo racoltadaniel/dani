@@ -94,7 +94,7 @@ export class ToDoList extends React.Component{
                 { 
                     this.state.toDoLoaded && (
                     <View >
-                        <FlatList style= {{marginTop:30, flex:1, width: 300, borderColor: '#f654f', borderWidth:1}}
+                        <FlatList style= {{marginTop:30, flex:2, width: 300, borderColor: '#f654f', borderWidth:1}}
                             data = {this.state.toDoList}
                             keyExtractor = {item => item.id.toString()}
                             renderItem={({item}) =>
