@@ -14,7 +14,7 @@
     "@react-navigation/native": "^5.2.4",
     "@react-navigation/stack": "^5.2.6",
     "@types/react-helmet": "^5.0.15",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "expo": "~37.0.3",
     "expo-updates": "~0.1.0",
     "https": "^1.0.0",
